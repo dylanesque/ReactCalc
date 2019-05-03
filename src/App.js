@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
 // Concatenate a space on either side of these symbols when added to the display formula
@@ -19,40 +19,38 @@ const numberButtons = [
   { id: "seven", char: "7" },
   { id: "eight", char: "8" },
   { id: "nine", char: "9" },
-  { id: "zero", char: "0" },
+  { id: "zero", char: "0" }
 ];
 
+class App extends React.Component {
+  state = {
+    display: '0'
+  };
 
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>React Calculator App</h1>
+          <main>
+            <h3 id="display">{this.state.display}</h3>
 
-function App() {
-
-  const [display, setDisplay] = useState("0");
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>React Calculator App</h1>
-        <main>
-          <h3 id="display">{display}</h3>
-
-          <div className="buttons">
-            {numberButtons.map(button => (
-              <button id={button.id}>
-                {button.char}
-              </button>
-            ))}
-            {operatorButtons.map(button => (
-              <button id={button.id}>
-                {button.char}
-              </button>
-            ))}
-            <button id="clear">C</button>
-            <button id="decimal">.</button>
-            <button id="equals">=</button>
-          </div>
-        </main>
-      </header>
-    </div>
-  );
+            <div className="buttons">
+              {numberButtons.map(button => (
+                <button id={button.id}>{button.char}</button>
+              ))}
+              {operatorButtons.map(button => (
+                <button id={button.id}>{button.char}</button>
+              ))}
+              <button id="clear" >C</button>
+              <button id="decimal">.</button>
+              <button id="equals">=</button>
+            </div>
+          </main>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
