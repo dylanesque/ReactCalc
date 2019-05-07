@@ -1,25 +1,29 @@
 import React from "react";
 import "./App.css";
 
-// Concatenate a space on either side of these symbols when added to the display formula
-const operatorButtons = [
-  { id: "add", char: "+" },
-  { id: "subtract", char: "-" },
-  { id: "multiply", char: "*" },
-  { id: "divide", char: "/" }
-];
+// Calculator Logic tasks:
+
+// 1) When a number, mathematical operator, or the decimal button is pressed,
+// that particular value is added to the display.  (Test #8)
+
+// 2) 
+
 
 const numberButtons = [
   { id: "one", char: "1" },
   { id: "two", char: "2" },
   { id: "three", char: "3" },
+  { id: "add", char: "+" },
   { id: "four", char: "4" },
   { id: "five", char: "5" },
   { id: "six", char: "6" },
+  { id: "subtract", char: "-" },
   { id: "seven", char: "7" },
   { id: "eight", char: "8" },
   { id: "nine", char: "9" },
-  { id: "zero", char: "0" }
+  { id: "multiply", char: "*" },
+  { id: "zero", char: "0" },
+  { id: "divide", char: "/" }
 ];
 
 class App extends React.Component {
@@ -39,12 +43,9 @@ class App extends React.Component {
               {numberButtons.map(button => (
                 <button id={button.id}>{button.char}</button>
               ))}
-              {operatorButtons.map(button => (
-                <button id={button.id}>{button.char}</button>
-              ))}
               <button id="clear" >C</button>
               <button id="decimal">.</button>
-              <button id="equals">=</button>
+              <button id="equals" className="equals">=</button>
             </div>
           </main>
         </header>
