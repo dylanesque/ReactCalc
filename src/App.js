@@ -6,7 +6,10 @@ import "./App.css";
 // 1) When a number, mathematical operator, or the decimal button is pressed,
 // that particular value is added to the display.  (Test #8)
 
-// 2) 
+// Variables to create:
+
+// A check for the last character inputted (or zero if one is beginning a calculation)
+// A check for
 
 
 const numberButtons = [
@@ -31,6 +34,13 @@ class App extends React.Component {
     display: '0'
   };
 
+  clearDisplay = () => this.setState({ display: '0' });
+
+
+  handleClick = () => {
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -41,9 +51,9 @@ class App extends React.Component {
 
             <div className="buttons">
               {numberButtons.map(button => (
-                <button id={button.id}>{button.char}</button>
+                <button id={button.id} onClick={this.handleClick}>{button.char}</button>
               ))}
-              <button id="clear" >C</button>
+              <button id="clear" onClick={this.clearDisplay}>C</button>
               <button id="decimal">.</button>
               <button id="equals" className="equals">=</button>
             </div>
