@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 
+// import Button from './components/Button'
+
 // Calculator Logic tasks:
 
 // 1) When a number, mathematical operator, or the decimal button is pressed,
@@ -8,11 +10,10 @@ import "./App.css";
 
 // Variables to create:
 
-// A check for the last character inputted (or zero if one is beginning a calculation)
-// A check for
+// A check for the last character inputted (including zero if one is beginning a calculation)
+// A check for non-numerical characters being inputted twice in a row
 
-
-const numberButtons = [
+const buttons = [
   { id: "one", char: "1" },
   { id: "two", char: "2" },
   { id: "three", char: "3" },
@@ -26,28 +27,30 @@ const numberButtons = [
   { id: "nine", char: "9" },
   { id: "multiply", char: "*" },
   { id: "zero", char: "0" },
-  { id: "divide", char: "/" }
+  { id: "divide", char: "/" },
+  { id: "decimal", char: "." },
+  { id: "space", char: " " }
 ];
 
 class App extends React.Component {
   state = {
-    display: '0',
-    lastEntered: '0'
+    display: "0",
+    lastEntered: "0"
   };
 
   clearDisplay = () => {
-    this.setState({ display: '0' });
+    this.setState({ display: "0" });
     console.log("display is cleared!");
-  }
+  };
 
   handleLastEntered = () => {
     // sets state of lastEntered to inputted character
-  }
-
+  };
 
   handleClick = () => {
-
-  }
+    // pushes button id to array
+    // updates handleLastEntered with current value
+  };
 
   render() {
     return (
@@ -57,14 +60,24 @@ class App extends React.Component {
           <main>
             <h3 id="display">{this.state.display}</h3>
 
-            <div className="buttons">
-              {numberButtons.map(button => (
-                <button key={button.id} id={button.id} onClick={this.handleClick}>{button.char}</button>
+            <div className="main-buttons">
+              {buttons.map(button => (
+                <button
+                  key={button.id}
+                  id={button.id}
+                  handleClick={this.handleClick}
+                >
+                  {button.char}
+                </button>
               ))}
-              <button id="clear" onClick={this.clearDisplay}>C</button>
-              <button id="decimal">.</button>
-              <button id="equals" className="equals">=</button>
-              <button id="space" className="space">Space</button>
+            </div>
+            <div className="utility-buttons">
+              <button id="clear" onClick={this.clearDisplay}>
+                Clear
+              </button>
+              <button id="equals" className="equals">
+                =
+              </button>
             </div>
           </main>
         </header>

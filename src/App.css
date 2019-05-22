@@ -45,12 +45,13 @@ button:active {
   color: white;
 }
 
-.buttons {
+.main-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   max-width: 50%;
 }
 
-.equals {
-  width: 100%;
+.utility-buttons {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
 }
