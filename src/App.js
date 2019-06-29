@@ -50,6 +50,7 @@ class App extends React.Component {
   handleClick = () => {
     // pushes button id to array
     // updates handleLastEntered with current value
+    console.log("I've been clicked!");
   };
 
   render() {
@@ -65,7 +66,7 @@ class App extends React.Component {
                 <button
                   key={button.id}
                   id={button.id}
-                  handleClick={this.handleClick}
+                  onClick={this.handleClick}
                 >
                   {button.char}
                 </button>

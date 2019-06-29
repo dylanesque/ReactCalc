@@ -4,7 +4,7 @@ class Button extends React.Component {
 
   render() {
     const { char } = this.props;
-    return ( <button>{char}</button> );
+    return ( <button onClick={this.handleClick}>{char}</button> );
   }
 }
 
